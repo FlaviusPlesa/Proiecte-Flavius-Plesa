@@ -1,0 +1,901 @@
+/*declaratii generale*/
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+
+/*style la header*/
+header {
+  width: 100%;
+  position: fixed;
+  text-align: left;
+  z-index: 1;
+}
+
+.over-header {
+  transition: 500ms ease;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  margin-top: -200px;
+  opacity: 0;
+  background-color: rgba(255, 221, 98, 0.75);
+}
+
+.down-animation {
+  margin-top: 0;
+  opacity: 1;
+}
+
+.logo-left, .about-right {
+  position: relative;
+  z-index: 2;
+}
+
+.logo-left {
+  display: inline-block;
+  width: 200px;
+  height: 100px;
+  margin-left: 100px;
+  background: url("icons/odin-icon-header.png") center center no-repeat;
+}
+
+.about-right {
+  display: inline-block;
+  text-align: center;
+  float: right;
+  clear: left;
+  margin-right: 100px;
+  width: 300px;
+  height: 100%;
+}
+
+.about-right > p {
+  color: #fff;
+  font-family: 'Comfortaa', Arial, sans-serif;
+  font-size: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0;
+  display: inline-block;
+  line-height: 100px;
+  transition: 300ms ease;
+  cursor: pointer;
+}
+
+.about-right > p:hover {
+  color: #dadada;
+}
+
+/*media query pentru elementele header-ului*/
+@media screen and (max-width: 715px){
+  .logo-left {
+    margin: 0;
+  }
+  .about-right {
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 516px){
+  header {
+    text-align: center;
+  }
+  .about-right {
+    float: none;
+    margin-top: -35px;
+  }
+/*adauga margine, pentru aspect, la textul centrat*/
+  .introduction > h1 {
+    margin-top: 280px;
+  }
+}
+/*ia din marginea textului centrat deoarece ii se adauga un <br> si arata descentrat*/
+@media screen and (max-width: 508px){
+  .introduction > h1 {
+    margin-top: 225px;
+  }
+}
+
+
+/*style la partea principala*/
+
+
+.introduction {
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background: url("wallpapers/header-wallpaper.jpg") center center no-repeat;
+  background-size: cover;
+}
+
+.introduction > h1 {
+  line-height: 50px;
+  margin: auto;
+  text-align: center;
+  color: #fff;
+  font-family: 'Comfortaa', Arial, sans-serif;
+  font-weight: 100;
+}
+
+ .plus-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  border: 7px solid rgb(40,234,137);
+  background: url("icons/down-arrow-icon.png") center center no-repeat;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 70px;
+  transition: 500ms ease;
+  cursor: pointer;
+}
+
+.plus-icon:hover {
+  border-color: rgb(28, 209, 119);
+}
+
+.down-arrow {
+  bottom: -100%;
+  opacity: 0;
+  z-index: -1;
+}
+
+.reset-arrow {
+  bottom: 0;
+  opacity: 1;
+  z-index: 1;
+}
+
+
+/*style la cele 3 blocuri cu "ideas", "work" etc.*/
+
+/*acest container este necesar pentru ca, a fost declarat un media query care
+schimba display-ul lui "container-apps" din flex in grid, si, daca nu era apasat cercul
+verde plusIcon, "container-apps", din cauza media query-ului, a suprascris "display: none" cu
+"display: grid" si aparea chiar daca cercul verde plusIcon nu a fost apasat.*/
+
+.invisible-container {
+  display: none;
+}
+
+.container-apps {
+  width: 100%;
+  background-color: red;
+  display: flex;
+}
+
+.special-flex-apps {
+  display: flex;
+}
+
+.remove-flex {
+  display: none;
+}
+
+.container-apps > div {
+  margin: 0;
+  height: 250px;
+  width: 100%;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.center-image {
+  margin: auto;
+  margin-top: 50px;
+  width: 50px;
+  height: 50px;
+}
+
+.white {
+  text-align: center;
+  margin-top: 50px;
+  font-weight: 100;
+  color: white;
+  font-family: 'Comfortaa', Arial, sans-serif;
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.green {
+ margin-top: 10px;
+ font-weight: bold;
+ color: rgb(40,234,137);
+ font-family: 'Comfortaa', Arial, sans-serif;
+ font-size: 14px;
+ text-align: center;
+}
+
+   .container-apps > div:nth-child(1){
+   background-color: rgb(52,84,99);
+   }
+
+   .lamp-image {
+     background: url("icons/apps-1-icon.png") center center no-repeat;
+   }
+
+   .container-apps > div:nth-child(2){
+  background-color: rgb(42,45,60);
+   }
+
+   .tv-image {
+    background: url("icons/apps-2-icon.png") center center no-repeat;
+   }
+
+   .container-apps > div:nth-child(3){
+    background-color: rgb(85,95,94);
+   }
+
+   .plug-image {
+    background: url("icons/apps-3-icon.png") center center no-repeat;
+   }
+
+
+   /*media query pentru container-apps*/
+
+  @media screen and (max-width: 615px){
+    .container-apps {
+      display: grid;
+      grid-template-columns: 50% 50%;
+    }
+
+    .container-apps > div:nth-child(3) {
+      width: 200%;
+    }
+
+  }
+
+
+
+  /*style la blocul alb si cel cu imaginea cu un laptop */
+
+
+    .container-computer {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 60% 40%;
+    }
+
+
+    .checkmarks-container {
+      color: rgb(165,165,165);
+      font-family: 'Comfortaa', Arial, sans-serif;
+      font-size: 12px;
+      margin: 50px auto auto auto;
+      padding-left: 90px;
+      padding-right: 20px;
+      font-weight: bold;
+    }
+
+    .list-container {
+      padding-left: 20px;
+    }
+
+    .list-container > p {
+      font-size: 16px;
+      padding-left: 80px;
+      margin-top: -34px;
+    }
+
+    .list-container > div:not(.learn-more) {
+      width: 50px;
+      height: 50px;
+      background: url("icons/checkmark-icon.png") center center no-repeat;
+      background-size: 60% 60%;
+      display: inline-block;
+    }
+
+    .learn-more {
+     width: 150px;
+     height: 50px;
+     background-color: rgb(40,234,137);
+     color: white;
+     text-align: center;
+     padding-left: 10px;
+     border-radius: 5px;
+     line-height: 50px;
+     font-size: 16px;
+     margin-top: 40px;
+     margin-left: -10px;
+     margin-bottom: 60px;
+     cursor: pointer;
+     transition: 300ms ease;
+     user-select: none;
+     -webkit-user-select: none;
+     -moz-user-select: none;
+     -o-user-select: none;
+     -ms-user-select: none;
+    }
+
+    .learn-more:hover {
+       background-color: rgb(18, 213, 116);
+    }
+
+    .learn-more:active {
+      transition: 100ms ease;
+      background-color: rgb(23, 195, 103);
+    }
+
+    .work-image {
+      background: url("wallpapers/wallpaper-computer.jpg") center center no-repeat;
+      background-size: cover;
+      height: 100%;
+    }
+
+/*media query pentru blocul alb*/
+@media screen and (max-width: 795px) {
+  .checkmarks-container {
+    padding-left: 30px;
+  }
+}
+
+@media screen and (max-width: 400px){
+  .list-container > p {
+    padding-left: 55px;
+  }
+
+  .list-container {
+    padding-left: 0;
+  margin-left: -20px;
+  }
+
+  .learn-more {
+    margin-left: -15px;
+  }
+}
+
+/*media query pentru blocul cu imaginea*/
+@media screen and (max-width: 990px){
+  .work-image {
+    background-size: 125% 100%;
+  }
+}
+
+@media screen and (max-width: 745px){
+  .work-image {
+    background-size: 170% 100%;
+  }
+}
+
+@media screen and (max-width: 520px){
+  .work-image {
+    background-size: 225% 100%;
+    background-position: right;
+  }
+}
+
+
+
+/*style la partea cu video-ul*/
+
+
+.video-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+  background: url("wallpapers/video-wallpaper.jpg") center center no-repeat;
+  background-size: cover;
+}
+
+  .playtitle-container {
+    margin: auto;
+    text-align: center;
+  }
+
+  .playtitle-container > h1 {
+  color: white;
+  letter-spacing: 3px;
+  font-family: 'Comfortaa', Arial, sans-serif;
+}
+
+.playtitle-container > .video-button {
+    width: 150px;
+    height: 50px;
+    background-color: rgb(40,234,137);
+    color: white;
+    text-align: center;
+    margin: 40px auto;
+    line-height: 50px;
+    font-weight: bold;
+    border-radius: 5px;
+    font-family: 'Comfortaa', Arial, sans-serif;
+    cursor: pointer;
+    transition: 300ms ease;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -ms-user-select: none;
+}
+
+.video-button:hover {
+   background-color: rgb(18, 213, 116);
+}
+
+.video-button:active {
+  transition: 100ms ease;
+  background-color: rgb(23, 195, 103);
+}
+
+
+/*style la cele 2 blocuri cu "some random text"*/
+
+.blog-news-container {
+  text-align: center;
+  width: 100%;
+  overflow: auto;
+  background-color: rgb(40,234,137);
+}
+
+.blog-news-container > h1 {
+  margin: 0;
+  text-align: center;
+  font-family: 'Comfortaa', Arial, sans-serif;
+  font-weight: 400;
+}
+
+.blog-news-container > h3 {
+  font-size: 1.2em;
+  padding-top: 15px;
+  font-weight: 400;
+  margin: 0;
+  text-align: center;
+  color: white;
+  font-family: 'Comfortaa', Arial, sans-serif;
+}
+
+.blog-news-container > h1:nth-of-type(1){
+  color: rgb(42,48,61);
+  padding-top: 50px;
+}
+
+  .blog {
+  position: relative;
+  margin-top: 70px;
+  margin-bottom: 35px;
+  width: 350px;
+  height: 420px;
+  background-color: white;
+  display: inline-block;
+  transition: 500ms ease;
+  overflow: hidden;
+}
+
+  .blog:nth-of-type(2){
+    vertical-align: top;
+  }
+
+.blog-news-container > .left {
+  margin-right: 10px;
+}
+
+.blog-news-container > .right {
+ margin-left: 10px;
+}
+
+.left.blog > .image-left-blog {
+  width: 100%;
+  height: 40%;
+  background: url("wallpapers/blog-1.jpg") center center no-repeat;
+  background-size: cover;
+
+}
+
+.right.blog > .image-right-blog {
+  width: 100%;
+  height: 40%;
+  background: url("wallpapers/blog-2.jpg") center center no-repeat;
+  background-size: cover;
+
+}
+
+.about-blog > h2 {
+    color: rgb(42,48,61);
+    font-family: 'Comfortaa', Arial, sans-serif;
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.about-blog > p {
+  color: rgb(181,181,181);
+  font-family: 'Comfortaa', Arial, sans-serif;
+  text-align: left;
+  font-size: 13.7px;
+  line-height: 30px;
+  margin-left: 15px;
+  font-weight: bold;
+}
+
+  .read-more {
+  position: absolute;
+  bottom: 20px;
+  width: 125px;
+  height: 45px;
+  font-family: 'Comfortaa', Arial, sans-serif;
+  background-color: rgb(42,45,60);
+  color: rgb(40,234,137);
+  text-align: center;
+  border-radius: 5px;
+  line-height: 45px;
+  font-size: 14px;
+  font-weight: bold;
+  padding-left: 10px;
+  margin-left: 15px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: 300ms ease;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -ms-user-select: none;
+}
+
+
+.button-container { /*acesta este pentru animatia dropdown, ca sa acopere
+  paragraful care va avea sa fie aratat in urma animatiei de dropdown
+  puteti vedea importanta acestui container aplicand background: transparent acestuia*/
+  width: 100%;
+  height: 90px;
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+}
+
+.read-more:hover {
+  background-color:rgb(18, 20, 31);
+}
+
+.read-more:active {
+  background-color:rgb(5, 7, 13);
+}
+
+#blog {
+  transition: 1000ms ease;
+}
+
+.dropdown {
+  height: 620px;
+  overflow: hidden;
+}
+
+
+.white-plus {
+  width: 70px;
+  height: 70px;
+  background: url("icons/plus-icon.png") center center no-repeat;
+  margin: auto;
+  margin-bottom: 35px;
+  opacity: 1;
+  transition: 300ms ease;
+  cursor: pointer;
+}
+
+.white-plus:hover {
+  opacity: 0.75;
+}
+
+
+
+
+/*media query pentru cele 2 blocuri*/
+
+@media screen and (max-width: 740px){
+  .blog-news-container > .left  {
+    margin-right: 5px;
+  }
+
+  .blog-news-container > .right {
+    margin-left: 5px;
+  }
+}
+
+@media screen and (max-width: 730px){
+  .blog-news-container > .left  {
+  /  margin-right: 0px;
+  }
+
+  .blog-news-container > .right {
+    margin-left: 0px;
+  }
+}
+
+@media screen and (max-width: 367px){
+  .blog-news-container > .blog {
+    width: 280px;
+    height: 460px;
+  }
+  .dropdown {
+    height: 700px !important;
+  }
+  .button-container {
+    height: 80px;
+  }
+}
+
+
+/*style la partea cu "start web agency for etc."*/
+
+.start-web-agency {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(42,45,60);
+  font-family
+  : 'Comfortaa', Arial, sans-serif;
+  color: white;
+}
+
+
+.titles-container > p:nth-child(1){
+  font-size: 32px;
+  margin-bottom: 5px;
+  font-weight: 100;
+}
+
+.titles-container > p:nth-child(2){
+  font-size: 18px;
+}
+
+
+.titles-container {
+  margin: auto;
+  padding-top: 60px;
+  padding-bottom: 100px;
+  text-align: center;
+}
+
+
+.start-project {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: rgb(40, 234, 137);
+}
+
+.start-project:hover {
+   background-color: rgb(18, 213, 116);
+}
+
+.start-project:active {
+  transition: 100ms ease;
+  background-color: rgb(23, 195, 103);
+}
+
+.read-more-white {
+  font-weight: bold;
+  font-size: 14px;
+  color: rgb(40, 234, 137);
+  background-color: white;
+}
+
+.read-more-white:hover {
+  background-color: #f1f1f1;
+}
+
+.read-more-white:active {
+  transition: 100ms ease;
+  background-color: #dadada;
+}
+
+.titles-container > div {
+  cursor: pointer;
+  transition: 300ms ease;
+  text-align: center;
+  padding-left: 10px;
+  border-radius: 5px;
+  width: 125px;
+  height: 40px;
+  display: inline-block;
+  line-height: 40px;
+  margin-top: 25px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+
+/*style la partea cu descrierea alba*/
+.description-odin {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  width: 100%;
+  font-family: 'Comfortaa', Arial, sans-serif;
+}
+
+.description-left {
+  margin-top: 50px;
+  margin-left: 100px;
+  margin-bottom: 100px;
+}
+
+
+.description-left > p {
+  line-height: 30px;
+  color: rgb(173,173,173);
+  margin-top: 0;
+}
+
+
+.description-left > .logo-left {
+  margin-left: 0;
+  background-position: left;
+}
+
+.social-icons-container {
+  padding-left: 100px;
+  width: 100%;
+
+}
+
+.social-icons {
+  margin-bottom: 20px;
+  margin-top: 80px;
+}
+
+.social-icons > div {
+  transition: 300ms ease;
+  cursor: pointer;
+  margin-right: 12px;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+}
+
+.social-icons > div:nth-child(1){
+  margin-left: -10px;
+  background: url("icons/facebook-social-icon.png") center center no-repeat;
+  background-size: 80% 80%;
+}
+
+.social-icons > div:nth-child(2){
+  background: url("icons/twitter-social-icon.png") center center no-repeat;
+  background-size: 80% 80%;
+}
+
+.social-icons > div:nth-child(3){
+  background: url("icons/basket-social-icon.png") center center no-repeat;
+  background-size: 80% 80%;
+}
+
+.social-icons > div:nth-child(4){
+  background: url("icons/googlep-social-icon.png") center center no-repeat;
+  background-size: 80% 80%;
+  text-align: center;
+}
+
+.social-icons > div:nth-child(5){
+  background: url("icons/ytb-social-icon.png") center center no-repeat;
+  background-size: 80% 80%;
+  text-align: center;
+}
+
+.social-icons > div:hover {
+  opacity: 0.5;
+}
+
+
+/*media query la description-odin*/
+
+
+
+@media screen and (max-width: 760px){
+  .social-icons {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 822px){
+  .description-odin {
+    grid-template-columns: initial;
+  }
+
+  .description-left {
+    margin: auto;
+  }
+
+  .social-icons-container {
+    text-align: center;
+    padding-left: 0;
+    margin-bottom: 50px;
+  }
+}
+
+
+@media screen and (max-width: 400px){
+  .description-left {
+    padding-left: 20px;
+  }
+  .description-left > p > br {
+    display: none;
+  }
+}
+
+/*style la footer*/
+
+footer {
+  display: grid;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+  background-color: rgb(41,44,53);
+  width: 100%;
+  height: 100px;
+}
+
+footer > div  {
+  font-family: 'Comfortaa', Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+footer > .copyright {
+  padding-left: 40px;
+  color: white;
+  font-size: 14px;
+}
+
+footer > .unsubscribe {
+  padding-right: 4px;
+  font-size: 14px;
+  color: rgb(40,234,137);
+  font-weight: bold;
+}
+
+footer > .unsubscribe > p {
+    cursor: pointer;
+    transition: 300ms ease;
+}
+
+footer > .unsubscribe > p:hover {
+  color: rgb(23, 195, 103);
+}
+
+.plus-icon-two {
+  transform: rotateX(180deg);
+  margin: auto;
+  bottom: 0;
+  opacity: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  border: 7px solid rgb(40,234,137);
+  background: url("icons/down-arrow-icon.png") center center no-repeat;
+  cursor: pointer;
+  position: relative;
+  transition: 300ms ease;
+}
+
+.plus-icon-two:hover {
+  border-color: rgb(28, 209, 119);
+}
+
+.show-footer-arrow {
+   opacity: 1;
+}
+
+.up-arrow {
+  bottom: 800px;
+}
+
+
+.video-container, .container-computer, .blog-news-container, .start-web-agency, .description-odin, footer {
+  display: none;
+}
